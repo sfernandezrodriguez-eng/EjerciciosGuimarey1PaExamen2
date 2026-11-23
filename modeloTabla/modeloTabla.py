@@ -78,3 +78,11 @@ class ModeloTabla(QAbstractTableModel):
         if indice.row() != -1 and indice.column() == 3:
             condicions = condicions | Qt.ItemFlag.ItemIsUserCheckable | Qt.ItemFlag.ItemIsEditable
         return condicions
+
+        # Métodos propios para insertar y borrar filas
+
+    def engadirFila(self, nova_fila):
+        fila_idx = self.rowCount(QModelIndex())
+        self.beginInsertRows(QModelIndex(), fila_idx, fila_idx)
+        self.tabla.append(nova_fila)
+        self.endInsertRows()

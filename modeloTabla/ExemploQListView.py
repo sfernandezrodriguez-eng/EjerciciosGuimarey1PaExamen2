@@ -28,11 +28,19 @@ class FiestraPrincipal(QMainWindow):
 
         caixaV.addWidget(self.tvwTaboa)
 
+        self.btn_aceptar = QPushButton("Aceptar")
+        self.btn_aceptar.clicked.connect(self.aceptar)
+        caixaV.addWidget(self.btn_aceptar)
+
         contenedor = QWidget()
         contenedor.setLayout(caixaV)
         self.setCentralWidget(contenedor)
 
         self.show()
+
+    def aceptar(self):
+        nova_fila = ["Novo Nome", "0000A", "Indefinido", False]
+        self.modelo.engadirFila(nova_fila)
 
 
 if __name__ == '__main__':
